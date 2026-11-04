@@ -1,0 +1,5 @@
+conjunto,n_features,posto,posto_cheio,numero_condicao
+Todas (41),41,40,False,5.957099e+16
+SEM redundancias exatas (39),39,39,True,12542988.0
+Reduzido (15),15,14,False,2.0452621e+16
+Reduzido sem duplicatas (13),13,13,True,37.43605

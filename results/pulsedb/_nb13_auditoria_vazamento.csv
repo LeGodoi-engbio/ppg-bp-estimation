@@ -1,0 +1,6 @@
+constante,identica_bitwise,contraprova_detecta
+media_features,True,True
+media_PAS,True,True
+media_PAD,True,True
+X_treino,True,True
+y_treino,True,True

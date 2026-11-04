@@ -1,0 +1,5 @@
+feature_a,feature_b,correlacao,posto_numerico,numero_condicao
+cardiac_period_s,w10_total,0.6129590992887325,40,5.957099e+16
+cardiac_period_s,w25_total,0.34397696868436956,40,5.957099e+16
+w10_total,w25_total,0.6965121068741864,40,5.957099e+16
+w33_dia,diastolic_time_s,0.37076373758720244,40,5.957099e+16

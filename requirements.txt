@@ -1,0 +1,13 @@
+numpy
+pandas
+scipy
+scikit-learn
+matplotlib
+seaborn
+wfdb
+h5py
+mat73
+joblib
+statsmodels
+jupyter
+tensorflow  # only for Notebook 12 (LSTM pilot)

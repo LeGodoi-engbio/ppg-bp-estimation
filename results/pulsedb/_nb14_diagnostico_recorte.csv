@@ -1,0 +1,3 @@
+modo,n_ciclos,pico_inicio_%,pico_fim_%,pico_interior_%,sut_zero_%,w50ratio_NaN_%,w50ratio_zero_%,w50ratio_util_%,recorte
+pico,2236,55.32200357781753,44.67799642218247,0.0,55.32200357781753,55.32200357781753,44.67799642218247,0.0,ATUAL (pico-a-pico)
+vale,2061,0.0,0.0,100.0,0.0,0.0,0.0,100.0,CORRIGIDO (vale-a-vale)

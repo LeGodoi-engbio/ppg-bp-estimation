@@ -1,0 +1,19 @@
+# datasets and trained models are not versioned
+Datasets/
+Modelos_Salvos/
+*.mat
+*.keras
+*.joblib
+*.npz
+results/**/_features_*.csv
+results/**/_predictions_*.csv
+
+# python / jupyter
+__pycache__/
+.ipynb_checkpoints/
+.venv/
+*.pyc
+
+# os / editors
+.DS_Store
+.vscode/
