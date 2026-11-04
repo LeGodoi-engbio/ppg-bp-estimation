@@ -1,12 +1,12 @@
 # datasets and trained models are not versioned
-Datasets/
-Modelos_Salvos/
+data/
+saved_models/
 *.mat
 *.keras
 *.joblib
 *.npz
-results/**/_features_*.csv
-results/**/_predictions_*.csv
+results/**/features_*.csv
+results/**/*_predictions.csv
 
 # python / jupyter
 __pycache__/

@@ -8,15 +8,15 @@ C1, C2, C0 = "#1f5f9e", "#4fb3bf", "#9a9a9a"
 
 # ---------- Fig 1: variance structure ----------
 sd_p = []
-for ch in pd.read_csv(f"{D}/PulseDB_features/_features_pulsedb_calbased_test_v3.csv",
+for ch in pd.read_csv(f"{D}/pulsedb_features/features_pulsedb_calbased_test_v3.csv",
                       usecols=["subject","record","bp_sys_mean"], chunksize=500_000):
     sd_p.append(ch.groupby(["subject","record"], as_index=False)["bp_sys_mean"].first())
 seg = pd.concat(sd_p).groupby(["subject","record"], as_index=False)["bp_sys_mean"].first()
 sdp = seg.groupby("subject")["bp_sys_mean"].std(ddof=1).dropna()
-ptt = pd.read_csv(f"{D}/PTT_PPG/_features_v3_clean.csv", usecols=["subject","condition","bp_sys_mean"])
+ptt = pd.read_csv(f"{D}/ptt_ppg/features_v3_clean.csv", usecols=["subject","condition","bp_sys_mean"])
 pseg = ptt.groupby(["subject","condition"], as_index=False)["bp_sys_mean"].first()
 sdt = pseg.groupby("subject")["bp_sys_mean"].std(ddof=1).dropna()
-va = pd.read_csv(f"{D}/PulseDB_features/_nb13_auditoria_variancia.csv")
+va = pd.read_csv(f"{D}/pulsedb_features/nb13_variance_audit.csv")
 icc = {r.base: r.ICC for r in va[va.alvo=="PAS"].itertuples()}
 
 fig, ax = plt.subplots(2, 1, figsize=(3.5, 3.6))
@@ -36,9 +36,9 @@ for a in ax: a.spines[["top","right"]].set_visible(False)
 fig.tight_layout(); fig.savefig(f"{OUT}/fig_variance.pdf"); plt.close(fig)
 
 # ---------- Fig 2: main result + permutation ----------
-rp = pd.read_csv(f"{D}/PulseDB_features/_nb13_resultado_principal.csv")
-nul = pd.read_csv(f"{D}/PulseDB_features/_nb13_distribuicao_nula.csv")
-perm = pd.read_csv(f"{D}/PulseDB_features/_nb13_permutacao.csv")
+rp = pd.read_csv(f"{D}/pulsedb_features/nb13_main_result.csv")
+nul = pd.read_csv(f"{D}/pulsedb_features/nb13_null_distribution.csv")
+perm = pd.read_csv(f"{D}/pulsedb_features/nb13_permutation.csv")
 fig, ax = plt.subplots(1, 3, figsize=(7.16, 2.2), gridspec_kw={"width_ratios":[1.1,1.1,1.3]})
 lab = ["Calibration\nmean", "Ridge", "Random\nForest"]
 for k, alvo in enumerate(["PAS","PAD"]):
@@ -57,7 +57,7 @@ for a in ax: a.spines[["top","right"]].set_visible(False)
 fig.tight_layout(); fig.savefig(f"{OUT}/fig_main.pdf"); plt.close(fig)
 
 # ---------- Fig 3: ablations ----------
-ab = pd.read_csv(f"{D}/PulseDB_features/_nb13_ablacoes.csv")
+ab = pd.read_csv(f"{D}/pulsedb_features/nb13_ablations.csv")
 names = {"Todas as 41 features":"All 41 features","SEM redundancias exatas":"Without exact duplicates (39)",
  "SEM escala — Versao C":"Scale-invariant only (35)","SEM frequencia cardiaca":"Without heart rate (39)",
  "REDUZIDO SEM DUPLICATAS":"Reduced set (13)","SO as 6 de escala":"Only the 6 scale-dependent",
@@ -74,7 +74,7 @@ ax.legend(frameon=False, loc="lower right"); ax.spines[["top","right"]].set_visi
 fig.tight_layout(); fig.savefig(f"{OUT}/fig_ablation.pdf"); plt.close(fig)
 
 # ---------- Fig 4: coefficients (top 12 by |coef| for SBP) ----------
-co = pd.read_csv(f"{D}/PulseDB_features/_nb13_coeficientes_reduzido.csv")
+co = pd.read_csv(f"{D}/pulsedb_features/nb13_reduced_model_coefficients.csv")
 pretty = {"std":"SD of cycle","hjorth_mobility":"Hjorth mobility","systolic_upstroke_time_s":"Systolic upstroke time",
  "cardiac_period_s":"Cardiac period","hjorth_complexity":"Hjorth complexity","amplitude":"Peak-to-foot amplitude",
  "skewness":"Skewness","variance":"Variance","heart_rate_bpm":"Heart rate","valley_value":"Foot value",

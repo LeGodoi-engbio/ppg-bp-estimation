@@ -5,7 +5,7 @@
 # Aluna: Leticia Barboza de Godoi | Orientador: Prof. Renan Trevisoli Doria
 #
 # Computador: notebook pessoal
-# Destino: C:\IC_PPG\Datasets\PulseDB_Kaggle\
+# Destino: C:\IC_PPG\data\pulsedb_kaggle\
 #
 # Dataset: PulseDB Supplementary Subsets (Wang et al., 2023)
 # Tamanho: ~19 GB | Tempo estimado: 10-60 min
